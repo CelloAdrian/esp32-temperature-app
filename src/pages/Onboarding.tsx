@@ -1,14 +1,9 @@
-import { Flex, Spacer, Heading, Text, Pressable, VStack } from "native-base";
-import { AntDesign } from "@expo/vector-icons";
+import { Flex, Heading, Text, Pressable, VStack } from "native-base";
 import Button from "../components/Button";
 
 import SmartHomeIllustration from "../illustrations/SmartHome.svg";
 
 const Onboarding = () => {
-  //   justifyContent="center"
-  //   alignItems="center"
-  //   padding={50}
-  //   height="full"
   return (
     <VStack
       height="full"
