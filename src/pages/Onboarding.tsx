@@ -1,5 +1,6 @@
 import { Flex, Spacer, Heading, Text, Pressable, VStack } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
+import Button from "../components/Button";
 
 import SmartHomeIllustration from "../illustrations/SmartHome.svg";
 
@@ -30,20 +31,7 @@ const Onboarding = () => {
         alignItems="center"
         space={5}
       >
-        <Pressable
-          width="full"
-          backgroundColor={"#181818"}
-          paddingX={50}
-          paddingY={4}
-          borderRadius={10}
-        >
-          <Flex direction="row" justifyContent="space-between">
-            <Text fontSize="lg" color="#F7F7F7">
-              login
-            </Text>
-            <AntDesign name="right" size={24} color="#F7F7F7" />
-          </Flex>
-        </Pressable>
+        <Button buttonText="login" iconName="right" iconSize={24} />
         <Flex direction="row">
           <Text fontSize="lg">Don't have an account? </Text>
           <Pressable>
