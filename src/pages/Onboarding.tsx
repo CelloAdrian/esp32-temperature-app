@@ -3,6 +3,7 @@ import { Flex, Heading, Text, Pressable, VStack } from "native-base";
 import BottomSheet from "@gorhom/bottom-sheet";
 import Button from "../components/Button";
 import SignUp from "./SignUp";
+import Login from "./Login";
 
 import SmartHomeIllustration from "../illustrations/SmartHome.svg";
 
@@ -73,6 +74,7 @@ const Onboarding = () => {
         }}
       >
         <SignUp />
+        {/* <Login /> */}
       </BottomSheet>
     </VStack>
   );
