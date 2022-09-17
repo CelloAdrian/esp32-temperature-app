@@ -1,9 +1,19 @@
+import React, { useCallback, useMemo, useRef } from "react";
 import { Flex, Heading, Text, Pressable, VStack } from "native-base";
+import BottomSheet from "@gorhom/bottom-sheet";
 import Button from "../components/Button";
+import SignUp from "./SignUp";
 
 import SmartHomeIllustration from "../illustrations/SmartHome.svg";
 
 const Onboarding = () => {
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const snapPoints = useMemo(() => ["70%"], []);
+
+  const handleOnPress = useCallback(() => {
+    bottomSheetRef.current?.snapToIndex(0);
+  }, []);
+
   return (
     <VStack
       height="full"
@@ -14,7 +24,7 @@ const Onboarding = () => {
     >
       <SmartHomeIllustration width={290} height={250} />
       <Flex direction="column" justifyContent={"center"} alignItems={"center"}>
-        <Heading fontSize="4xl">Welcome</Heading>
+        <Heading size="2xl">Welcome</Heading>
         <Text fontSize="lg" textAlign="center">
           With just a few taps, managing smart devices has never been this
           easier
@@ -26,7 +36,14 @@ const Onboarding = () => {
         alignItems="center"
         space={5}
       >
-        <Button buttonText="login" iconName="right" iconSize={24} />
+        <Button
+          buttonText="login"
+          iconName="right"
+          iconSize={24}
+          onPress={() => {
+            handleOnPress();
+          }}
+        />
         <Flex direction="row">
           <Text fontSize="lg">Don't have an account? </Text>
           <Pressable>
@@ -36,6 +53,27 @@ const Onboarding = () => {
           </Pressable>
         </Flex>
       </VStack>
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={0}
+        snapPoints={snapPoints}
+        enablePanDownToClose
+        style={{
+          // https://github.com/gorhom/react-native-bottom-sheet/issues/734#issuecomment-1150977998
+          // https://10015.io/tools/react-native-shadow-generator
+          backgroundColor: "rgba(255, 255, 255,0)",
+          shadowColor: "#000000",
+          shadowOffset: {
+            width: 0,
+            height: 18,
+          },
+          shadowOpacity: 0.25,
+          shadowRadius: 20.0,
+          elevation: 24,
+        }}
+      >
+        <SignUp />
+      </BottomSheet>
     </VStack>
   );
 };

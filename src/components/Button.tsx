@@ -5,9 +5,10 @@ interface ButtonProps {
   buttonText: string;
   iconName: any;
   iconSize: number;
+  onPress: () => void;
 }
 
-const Button = ({ buttonText, iconName, iconSize }: ButtonProps) => {
+const Button = ({ buttonText, iconName, iconSize, onPress }: ButtonProps) => {
   return (
     <Pressable
       width="full"
@@ -15,6 +16,7 @@ const Button = ({ buttonText, iconName, iconSize }: ButtonProps) => {
       paddingX={50}
       paddingY={4}
       borderRadius={10}
+      onPress={onPress}
     >
       <Flex direction="row" justifyContent="space-between" alignItems="center">
         <Text fontSize="lg" color="#F7F7F7">
