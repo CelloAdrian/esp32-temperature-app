@@ -5,7 +5,7 @@ import Button from "../components/Button";
 import SignUp from "./SignUp";
 import Login from "./Login";
 
-import SmartHomeIllustration from "../illustrations/SmartHome.svg";
+import SmartHomeIllustration from "../assets/illustrations/SmartHome.svg";
 
 const Onboarding = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
