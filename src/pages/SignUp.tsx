@@ -8,12 +8,19 @@ import {
   Input,
   Icon,
 } from "native-base";
+import { useNavigation } from "@react-navigation/native";
 
 import { MaterialIcons } from "@expo/vector-icons";
 import Button from "../components/Button";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  interface Nav {
+    navigate: (value: string) => void;
+  }
+
+  const { navigate } = useNavigation<Nav>();
 
   return (
     <VStack padding={10} space={20}>
@@ -74,7 +81,7 @@ const SignUp = () => {
         iconName="right"
         iconSize={24}
         onPress={() => {
-          console.log("test");
+          navigate("Homescreen");
         }}
       />
     </VStack>
