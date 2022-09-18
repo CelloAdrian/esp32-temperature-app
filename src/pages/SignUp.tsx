@@ -28,7 +28,11 @@ const SignUp = () => {
         <Heading size="2xl">Sign Up</Heading>
         <Flex direction="row">
           <Text fontSize="lg">Already have an account? </Text>
-          <Pressable>
+          <Pressable
+            onPress={() => {
+              navigate("Login");
+            }}
+          >
             <Text fontSize="lg" bold>
               Login
             </Text>

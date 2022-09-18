@@ -1,6 +1,4 @@
-import React, { useCallback, useMemo, useRef } from "react";
 import { Flex, Heading, Text, Pressable, VStack } from "native-base";
-import BottomSheet from "@gorhom/bottom-sheet";
 import Button from "../components/Button";
 import SignUp from "./SignUp";
 import Login from "./Login";
@@ -8,13 +6,6 @@ import Login from "./Login";
 import SmartHomeIllustration from "../assets/illustrations/SmartHome.svg";
 
 const Onboarding = () => {
-  const bottomSheetRef = useRef<BottomSheet>(null);
-  const snapPoints = useMemo(() => ["70%"], []);
-
-  const handleOnPress = useCallback(() => {
-    bottomSheetRef.current?.snapToIndex(0);
-  }, []);
-
   return (
     <VStack
       height="full"
@@ -42,7 +33,9 @@ const Onboarding = () => {
           iconName="right"
           iconSize={24}
           onPress={() => {
-            handleOnPress();
+            // handleOnPress();
+            // open bottom sheet
+            
           }}
         />
         <Flex direction="row">
@@ -54,7 +47,7 @@ const Onboarding = () => {
           </Pressable>
         </Flex>
       </VStack>
-      <BottomSheet
+      {/* <BottomSheet
         ref={bottomSheetRef}
         index={0}
         snapPoints={snapPoints}
@@ -74,8 +67,7 @@ const Onboarding = () => {
         }}
       >
         <SignUp />
-        {/* <Login /> */}
-      </BottomSheet>
+      </BottomSheet> */}
     </VStack>
   );
 };
