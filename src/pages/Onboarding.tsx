@@ -10,7 +10,7 @@ import Handle from "../components/BottomSheet/BottomSheetHandle";
 
 const Onboarding = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
-  const snapPoints = useMemo(() => ["50%", "70%"], []);
+  const snapPoints = useMemo(() => ["70%"], []);
 
   const handleOnPress = useCallback(() => {
     bottomSheetRef.current?.snapToIndex(1);
