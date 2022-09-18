@@ -13,7 +13,7 @@ const Onboarding = () => {
   const snapPoints = useMemo(() => ["70%"], []);
 
   const handleOnPress = useCallback(() => {
-    bottomSheetRef.current?.snapToIndex(1);
+    bottomSheetRef.current?.snapToIndex(0);
   }, []);
 
   return (
