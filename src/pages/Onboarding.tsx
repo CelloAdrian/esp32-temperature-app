@@ -6,13 +6,14 @@ import SignUp from "./SignUp";
 import Login from "./Login";
 
 import SmartHomeIllustration from "../assets/illustrations/SmartHome.svg";
+import Handle from "../components/BottomSheet/BottomSheetHandle";
 
 const Onboarding = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
-  const snapPoints = useMemo(() => ["70%"], []);
+  const snapPoints = useMemo(() => ["50%", "70%"], []);
 
   const handleOnPress = useCallback(() => {
-    bottomSheetRef.current?.snapToIndex(0);
+    bottomSheetRef.current?.snapToIndex(1);
   }, []);
 
   return (
@@ -56,8 +57,9 @@ const Onboarding = () => {
       </VStack>
       <BottomSheet
         ref={bottomSheetRef}
-        index={0}
+        index={-1}
         snapPoints={snapPoints}
+        handleComponent={Handle}
         enablePanDownToClose
         style={{
           // https://github.com/gorhom/react-native-bottom-sheet/issues/734#issuecomment-1150977998
