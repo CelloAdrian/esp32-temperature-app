@@ -23,7 +23,13 @@ const SignUp = () => {
   const { navigate } = useNavigation<Nav>();
 
   return (
-    <VStack padding={10} space={20}>
+    <VStack
+      padding={10}
+      space={20}
+      height="full"
+      justifyContent="center"
+      alignItems="center"
+    >
       <VStack justifyContent="center" alignItems="center" space={1}>
         <Heading size="2xl">Sign Up</Heading>
         <Flex direction="row">
@@ -35,7 +41,7 @@ const SignUp = () => {
           </Pressable>
         </Flex>
       </VStack>
-      <VStack space={5}>
+      <VStack space={5} width="full">
         <Input
           InputLeftElement={
             <Icon

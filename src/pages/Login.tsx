@@ -16,7 +16,13 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <VStack padding={10} space={20}>
+    <VStack
+      padding={10}
+      space={20}
+      height="full"
+      justifyContent="center"
+      alignItems="center"
+    >
       <VStack justifyContent="center" alignItems="center" space={1}>
         <Heading size="2xl">Login</Heading>
         <Flex direction="row">
@@ -28,7 +34,7 @@ const SignUp = () => {
           </Pressable>
         </Flex>
       </VStack>
-      <VStack space={5}>
+      <VStack space={5} width="full">
         <Input
           InputLeftElement={
             <Icon
