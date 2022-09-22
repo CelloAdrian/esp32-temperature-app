@@ -7,6 +7,7 @@ import DeviceSetup from "./DeviceSetup";
 
 import VoidIllustration from "../assets/illustrations/Void.svg";
 import SettingsIcon from "../assets/icons/settings_1_line.svg";
+import DeviceSetupTest from "./DeviceSetup/DeviceSetup2";
 
 const Homescreen = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -71,7 +72,7 @@ const Homescreen = () => {
           elevation: 24,
         }}
       >
-        <DeviceSetup />
+        <DeviceSetupTest />
       </BottomSheet>
     </VStack>
   );
