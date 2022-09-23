@@ -3,11 +3,10 @@ import { Flex, Heading, VStack, Text } from "native-base";
 import BottomSheet from "@gorhom/bottom-sheet";
 import Button from "../components/Button";
 import Handle from "../components/BottomSheet/BottomSheetHandle";
-import DeviceSetup from "./DeviceSetup";
+import DeviceSetup from "./DeviceSetup/DeviceSetup";
 
 import VoidIllustration from "../assets/illustrations/Void.svg";
 import SettingsIcon from "../assets/icons/settings_1_line.svg";
-import DeviceSetupTest from "./DeviceSetup/DeviceSetup2";
 
 const Homescreen = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -72,7 +71,7 @@ const Homescreen = () => {
           elevation: 24,
         }}
       >
-        <DeviceSetupTest />
+        <DeviceSetup />
       </BottomSheet>
     </VStack>
   );

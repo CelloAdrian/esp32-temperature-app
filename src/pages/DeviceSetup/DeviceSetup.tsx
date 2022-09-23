@@ -7,7 +7,7 @@ import DeviceSetupSlides from "./DeviceSetupSlides";
 import DeviceSetupItem from "./DeviceSetupItem";
 import Paginator from "../../components/Paginator";
 
-const DeviceSetupTest = () => {
+const DeviceSetup = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const scrollX = useRef(new Animated.Value(0)).current;
   const slidesRef = useRef(null);
@@ -59,4 +59,4 @@ const DeviceSetupTest = () => {
   );
 };
 
-export default DeviceSetupTest;
+export default DeviceSetup;
