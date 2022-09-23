@@ -5,7 +5,7 @@ import Animated from "react-native-reanimated";
 const Paginator = ({ data, scrollX }: any) => {
   const { width } = useWindowDimensions();
   return (
-    <Flex flexDirection="row" justifyContent="center" alignItems="center">
+    <Flex flexDirection="row" justifyContent="center" alignItems="center" height="20px">
       {data.map((_: any, index: number) => {
         const inputRange = [
           (index - 1) * width,
