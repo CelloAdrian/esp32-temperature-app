@@ -15,6 +15,8 @@ import Button from "../components/Button";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   interface Nav {
     navigate: (value: string) => void;
@@ -90,6 +92,7 @@ const SignUp = () => {
         buttonText="login"
         iconName="right"
         iconSize={24}
+        disabled={username.length < 3 || password.length < 3}
         onPress={() => {
           console.log("test");
         }}
