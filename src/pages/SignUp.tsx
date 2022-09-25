@@ -9,12 +9,19 @@ import {
   Icon,
 } from "native-base";
 import { useNavigation } from "@react-navigation/native";
+import * as SecureStore from "expo-secure-store";
 
 import { MaterialIcons } from "@expo/vector-icons";
 import Button from "../components/Button";
 
+async function save(key: string, value: string) {
+  await SecureStore.setItemAsync(key, value);
+}
+
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   interface Nav {
     navigate: (value: string) => void;
@@ -34,7 +41,11 @@ const SignUp = () => {
         <Heading size="2xl">Sign Up</Heading>
         <Flex direction="row">
           <Text fontSize="lg">Already have an account? </Text>
-          <Pressable>
+          <Pressable
+            onPress={() => {
+              navigate("Login");
+            }}
+          >
             <Text fontSize="lg" bold>
               Login
             </Text>
@@ -53,6 +64,8 @@ const SignUp = () => {
           }
           fontSize="lg"
           placeholder="Username"
+          onChangeText={(value) => setUsername(value)}
+          autoCapitalize="none"
         />
         <Input
           type={showPassword ? "text" : "password"}
@@ -80,14 +93,20 @@ const SignUp = () => {
           }
           fontSize="lg"
           placeholder="Password"
+          onChangeText={(value) => setPassword(value)}
+          autoCapitalize="none"
         />
       </VStack>
       <Button
         buttonText="sign up"
         iconName="right"
         iconSize={24}
+        disabled={username.length < 3 || password.length < 3}
         onPress={() => {
+          // TODO : open homescreen
           navigate("Homescreen");
+          save("username", username);
+          save("password", password);
         }}
       />
     </VStack>

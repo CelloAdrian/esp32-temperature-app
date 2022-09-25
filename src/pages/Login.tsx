@@ -8,12 +8,21 @@ import {
   Input,
   Icon,
 } from "native-base";
+import { useNavigation } from "@react-navigation/native";
 
 import { MaterialIcons } from "@expo/vector-icons";
 import Button from "../components/Button";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  interface Nav {
+    navigate: (value: string) => void;
+  }
+
+  const { navigate } = useNavigation<Nav>();
 
   return (
     <VStack
@@ -27,7 +36,11 @@ const SignUp = () => {
         <Heading size="2xl">Login</Heading>
         <Flex direction="row">
           <Text fontSize="lg">Don't have an account? </Text>
-          <Pressable>
+          <Pressable
+            onPress={() => {
+              navigate("SignUp");
+            }}
+          >
             <Text fontSize="lg" bold>
               Sign up
             </Text>
@@ -79,6 +92,7 @@ const SignUp = () => {
         buttonText="login"
         iconName="right"
         iconSize={24}
+        disabled={username.length < 3 || password.length < 3}
         onPress={() => {
           console.log("test");
         }}
