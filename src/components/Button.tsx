@@ -6,17 +6,19 @@ interface ButtonProps {
   iconName: any;
   iconSize: number;
   onPress: () => void;
+  disabled?: boolean;
 }
 
-const Button = ({ buttonText, iconName, iconSize, onPress }: ButtonProps) => {
+const Button = ({ buttonText, iconName, iconSize, onPress, disabled }: ButtonProps) => {
   return (
     <Pressable
       width="full"
-      backgroundColor={"#181818"}
+      backgroundColor={disabled ? "#A3A3A3" : "#181818"}
       paddingX={50}
       paddingY={4}
       borderRadius={10}
       onPress={onPress}
+      disabled={disabled}
     >
       <Flex direction="row" justifyContent="space-between" alignItems="center">
         <Text fontSize="lg" color="#F7F7F7">

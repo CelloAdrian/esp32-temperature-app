@@ -9,12 +9,19 @@ import {
   Icon,
 } from "native-base";
 import { useNavigation } from "@react-navigation/native";
+import * as SecureStore from "expo-secure-store";
 
 import { MaterialIcons } from "@expo/vector-icons";
 import Button from "../components/Button";
 
+async function save(key: string, value: string) {
+  await SecureStore.setItemAsync(key, value);
+}
+
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   interface Nav {
     navigate: (value: string) => void;
@@ -23,7 +30,13 @@ const SignUp = () => {
   const { navigate } = useNavigation<Nav>();
 
   return (
-    <VStack padding={10} space={20}>
+    <VStack
+      padding={10}
+      space={20}
+      height="full"
+      justifyContent="center"
+      alignItems="center"
+    >
       <VStack justifyContent="center" alignItems="center" space={1}>
         <Heading size="2xl">Sign Up</Heading>
         <Flex direction="row">
@@ -39,7 +52,7 @@ const SignUp = () => {
           </Pressable>
         </Flex>
       </VStack>
-      <VStack space={5}>
+      <VStack space={5} width="full">
         <Input
           InputLeftElement={
             <Icon
@@ -51,6 +64,8 @@ const SignUp = () => {
           }
           fontSize="lg"
           placeholder="Username"
+          onChangeText={(value) => setUsername(value)}
+          autoCapitalize="none"
         />
         <Input
           type={showPassword ? "text" : "password"}
@@ -78,14 +93,19 @@ const SignUp = () => {
           }
           fontSize="lg"
           placeholder="Password"
+          onChangeText={(value) => setPassword(value)}
+          autoCapitalize="none"
         />
       </VStack>
       <Button
         buttonText="sign up"
         iconName="right"
         iconSize={24}
+        disabled={username.length < 3 || password.length < 3}
         onPress={() => {
           navigate("Homescreen");
+          save("username", username);
+          save("password", password);
         }}
       />
     </VStack>
