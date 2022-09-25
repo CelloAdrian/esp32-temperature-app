@@ -5,8 +5,46 @@ import Login from "./Login";
 
 import SmartHomeIllustration from "../assets/illustrations/SmartHome.svg";
 import Handle from "../components/BottomSheet/BottomSheetHandle";
+import { useMemo, useRef } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationOptions,
+} from "@react-navigation/native-stack";
+import BottomSheet from "@gorhom/bottom-sheet";
+
+const Stack = createNativeStackNavigator();
+
+const BottomSheetNavigator = () => {
+  const screenOptions = useMemo<NativeStackNavigationOptions>(
+    () => ({
+      headerShown: false,
+      safeAreaInsets: { top: 0 },
+      cardStyle: {
+        backgroundColor: "white",
+        overflow: "visible",
+      },
+    }),
+    []
+  );
+
+  return (
+    <NavigationContainer independent>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 const Onboarding = () => {
+  const bottomSheetRef = useRef<BottomSheet>(null);
+  const snapPoints = useMemo(() => ["70%"], []);
+  const handleOnPress = () => {
+    bottomSheetRef.current?.expand();
+  };
+
   return (
     <VStack
       height="full"
@@ -34,9 +72,7 @@ const Onboarding = () => {
           iconName="right"
           iconSize={24}
           onPress={() => {
-            // handleOnPress();
-            // open bottom sheet
-            
+            handleOnPress();
           }}
         />
         <Flex direction="row">
@@ -48,7 +84,7 @@ const Onboarding = () => {
           </Pressable>
         </Flex>
       </VStack>
-      {/* <BottomSheet
+      <BottomSheet
         ref={bottomSheetRef}
         index={-1}
         snapPoints={snapPoints}
@@ -68,8 +104,8 @@ const Onboarding = () => {
           elevation: 24,
         }}
       >
-        <SignUp />
-      </BottomSheet> */}
+        <BottomSheetNavigator />
+      </BottomSheet>
     </VStack>
   );
 };

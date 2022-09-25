@@ -103,7 +103,7 @@ const SignUp = () => {
         iconSize={24}
         disabled={username.length < 3 || password.length < 3}
         onPress={() => {
-          navigate("Homescreen");
+          // TODO : open homescreen
           save("username", username);
           save("password", password);
         }}
