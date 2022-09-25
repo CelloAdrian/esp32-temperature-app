@@ -29,12 +29,12 @@ const BottomSheetNavigator = () => {
   );
 
   return (
-    <NavigationContainer independent>
+    // <NavigationContainer>
       <Stack.Navigator screenOptions={screenOptions}>
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
-    </NavigationContainer>
+    // </NavigationContainer>
   );
 };
 

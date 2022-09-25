@@ -104,6 +104,7 @@ const SignUp = () => {
         disabled={username.length < 3 || password.length < 3}
         onPress={() => {
           // TODO : open homescreen
+          navigate("Homescreen");
           save("username", username);
           save("password", password);
         }}
