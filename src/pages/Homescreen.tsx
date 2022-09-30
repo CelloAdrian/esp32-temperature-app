@@ -23,6 +23,7 @@ const Homescreen = () => {
       alignItems="center"
       padding={50}
       space={10}
+      backgroundColor="#F7F7F7"
     >
       <VStack width="full">
         <Heading size="lg">Hi [name]</Heading>

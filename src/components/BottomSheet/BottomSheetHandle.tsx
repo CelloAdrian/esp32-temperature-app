@@ -2,7 +2,7 @@ import { View } from "native-base";
 
 const Handle = () => {
   return (
-    <View paddingY={2} backgroundColor="#F2F2F2" borderTopLeftRadius={24} borderTopRightRadius={24}>
+    <View paddingY={2} backgroundColor="#F7F7F7" borderTopLeftRadius={24} borderTopRightRadius={24}>
       <View
         width={44}
         height={1}
