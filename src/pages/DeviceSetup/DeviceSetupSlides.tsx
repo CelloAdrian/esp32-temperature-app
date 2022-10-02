@@ -10,4 +10,9 @@ export default [
     title: "Add a Device",
     description: "Make sure that your network is 2.4 GHz",
   },
+  {
+    id: "3",
+    title: "All Done!",
+    description: "Feel free to close this bottom sheet",
+  },
 ];
