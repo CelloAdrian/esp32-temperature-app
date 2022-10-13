@@ -1,10 +1,60 @@
-import React, { useCallback, useMemo, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { Flex, Heading, VStack, HStack, Text } from "native-base";
 import { Feather } from "@expo/vector-icons";
+import * as Network from "expo-network";
 
 import SettingsIcon from "../assets/icons/settings_1_line.svg";
 
 const Homescreen = () => {
+  const [ipAddress, setIpAddress] = useState<string>("");
+  const [isTemperatureLoaded, setIsTemperatureLoaded] = useState<boolean>(false);
+  const [isHumidityLoaded, setIsHumidityLoaded] = useState<boolean>(false);
+  const [temperature, setTemperature] = useState<number>(0);
+  const [humidity, setHumidity] = useState<number>(0);
+
+  const getIpAddress = async () => {
+    const ip = await Network.getIpAddressAsync();
+    setIpAddress(ip);
+    console.log(ip);
+  };
+
+  const getTemperature = async () => {
+    try {
+      // fetch from ip address + route /temperature
+      const response = await fetch(`http://${ipAddress}/temperature`);
+      const data = await response.json();
+      setTemperature(data.temperature);
+      setIsTemperatureLoaded(true);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsTemperatureLoaded(true);
+    }
+  };
+
+  const getHumidity = async () => {
+    try {
+      // fetch from ip address + route /humidity
+      const response = await fetch(`http://${ipAddress}/humidity`);
+      const data = await response.json();
+      setHumidity(data.humidity);
+      setIsHumidityLoaded(true);
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsHumidityLoaded(true);
+    }
+  };
+
+  useEffect(() => {
+    // while get ip address is not finished, do not execute getTemperature and getHumidity
+    while (!ipAddress) {
+      getIpAddress();
+    }
+    getTemperature();
+    getHumidity();
+  }, []);
+
   return (
     <VStack
       height="full"

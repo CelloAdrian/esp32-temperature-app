@@ -2147,6 +2147,11 @@
     prompts "^2.4.0"
     semver "^6.3.0"
 
+"@react-native-community/netinfo@^9.3.4":
+  version "9.3.4"
+  resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-9.3.4.tgz#712d567703e05c4a01d82a18bd646a93c6757007"
+  integrity sha512-IXbJ+L8p4oE2ssDPfXCyxx9xVo5WuTMv6HA5YJw2McuRLLtVKR/vambycrB47AWTkHCTj3e0VOz28iUOvTSVPw==
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets/-/assets-1.0.0.tgz#c6f9bf63d274bafc8e970628de24986b30a55c8e"
@@ -4156,6 +4161,11 @@ expo-modules-core@0.11.5:
   dependencies:
     compare-versions "^3.4.0"
     invariant "^2.2.4"
+
+expo-network@~4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/expo-network/-/expo-network-4.3.0.tgz#4bad33aed3bdde835062926c488843aab6a559b3"
+  integrity sha512-Rcw6jUXajbS1esNVbk9jRMQfOTouoxegsj7HkZyKe1oTS12+VuhbiKmR31nBEhpfqE4WeQ21LBvKmKvZwl130Q==
 
 expo-secure-store@~11.3.0:
   version "11.3.0"
