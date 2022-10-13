@@ -8,9 +8,9 @@ const Homescreen = () => {
   return (
     <VStack
       height="full"
-      // justifyContent="center"
       alignItems="center"
-      padding={50}
+      paddingX={50}
+      paddingY={75}
       space={10}
     >
       <VStack width="full">
@@ -21,7 +21,12 @@ const Homescreen = () => {
       </VStack>
       <VStack width="full" space={25}>
         <VStack width="full">
-          <Flex direction="row" justifyContent="space-between" alignItems="center" width="full">
+          <Flex
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+            width="full"
+          >
             <Text fontSize="2xl" bold>
               Devices
             </Text>
@@ -29,19 +34,29 @@ const Homescreen = () => {
           </Flex>
         </VStack>
         <VStack width="full" space={50}>
-          <VStack backgroundColor="#181818" borderRadius={10} space={2} padding={5}>
-            <HStack>
+          <VStack
+            backgroundColor="#181818"
+            borderRadius={10}
+            space={2}
+            padding={5}
+          >
+            <HStack space={1} alignItems="center">
               <Feather name="thermometer" size={24} color="#F7F7F7" />
               <Text fontSize="lg" color="#F7F7F7">
                 Temperature Sensor
               </Text>
             </HStack>
-            <Flex direction="row" width="full" justifyContent="center" alignItems="center">
+            <Flex
+              direction="row"
+              width="full"
+              justifyContent="center"
+              alignItems="center"
+            >
               <VStack flex={0.5} justifyContent="center" alignItems="center">
                 <Text fontSize="3xl" color="#F7F7F7">
                   69°C
                 </Text>
-                <Text fontSize="lg" color="#F7F7F7">
+                <Text fontSize="md" color="#F7F7F7">
                   Temperature
                 </Text>
               </VStack>
@@ -49,7 +64,7 @@ const Homescreen = () => {
                 <Text fontSize="3xl" color="#F7F7F7">
                   69%
                 </Text>
-                <Text fontSize="lg" color="#F7F7F7">
+                <Text fontSize="md" color="#F7F7F7">
                   Humidity
                 </Text>
               </VStack>
